@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <div id="terminal" class="terminal"></div>
+        <input type="text" id="inputField" class="input-field" placeholder="Enter command..." autocomplete="off">
+        <button id="startBtn" class="action-btn">Start Hack</button>
+        <button id="traceBtn" class="action-btn" disabled>Trace IP</button>
+        <button id="crackBtn" class="action-btn" disabled>Crack Password</button>
+        <button id="ransomwareBtn" class="action-btn" disabled>Deploy Ransomware</button>
+        <button id="shutdownBtn" class="action-btn" disabled>Abort Mission</button>
+        <div id="countdown" class="countdown" hidden>
+            <p>Time Left: <span id="timer">10:00</span></p>
+        </div>
+    </div>
+
+    <!-- Audio files for typing sound and alert sound -->
+    <audio id="typingSound" src="typing-sound.mp3"></audio>
+    <audio id="alertSound" src="alert-sound.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
