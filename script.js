@@ -2,6 +2,8 @@ const terminal = document.getElementById("terminal");
 const inputField = document.getElementById("inputField");
 const typingSound = document.getElementById("typingSound");
 const alertSound = document.getElementById("alertSound");
+const systemFailureSound = document.getElementById("systemFailureSound");
+const hackingSound = document.getElementById("hackingSound");
 const countdown = document.getElementById("countdown");
 const timerDisplay = document.getElementById("timer");
 
@@ -36,7 +38,7 @@ const logsData = {
 
 // Start the hacking simulation
 document.getElementById("startBtn").addEventListener("click", () => {
-    typingSound.play();
+    hackingSound.play();
     addLogs(logsData.hacking, 1000, () => {
         document.getElementById("traceBtn").disabled = false;
         document.getElementById("crackBtn").disabled = false;
@@ -78,6 +80,7 @@ document.getElementById("ransomwareBtn").addEventListener("click", () => {
 
 // Abort Mission
 document.getElementById("shutdownBtn").addEventListener("click", () => {
+    systemFailureSound.play();
     terminal.innerHTML += `<p class="error">MISSION ABORTED! SHUTTING DOWN...</p>`;
     resetProgress();
     clearInterval(timerInterval);
@@ -117,7 +120,6 @@ function addLogs(logArray, delay, callback) {
             log.textContent = logArray[i];
             terminal.appendChild(log);
             terminal.scrollTop = terminal.scrollHeight;
-
             i++;
         } else {
             clearInterval(interval);
@@ -136,6 +138,10 @@ function startCountdown() {
             const minutes = Math.floor(timeLeft / 60).toString().padStart(2, "0");
             const seconds = (timeLeft % 60).toString().padStart(2, "0");
             timerDisplay.textContent = `${minutes}:${seconds}`;
+
+            if (timeLeft <= 30) {
+                timerDisplay.classList.add('warning');
+            }
         } else {
             clearInterval(timerInterval);
             terminal.innerHTML += `<p class="error">TIME IS UP! SYSTEM DETECTED YOUR INTRUSION.</p>`;
@@ -148,4 +154,5 @@ function resetProgress() {
     timeLeft = 600;
     progress = 0;
     countdown.hidden = true;
+    timerDisplay.classList.remove('warning');
 }
