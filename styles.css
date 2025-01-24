@@ -48,6 +48,11 @@ body {
     font-size: 18px;
     margin: 5px;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.action-btn:hover {
+    transform: scale(1.1);
 }
 
 .action-btn:disabled {
@@ -81,29 +86,4 @@ body {
 /* Flash Red for Ransomware Alert */
 @keyframes flashRed {
     0% { background-color: rgba(255, 0, 0, 0.7); }
-    50% { background-color: rgba(255, 0, 0, 0.9); }
-    100% { background-color: rgba(255, 0, 0, 0.7); }
-}
-
-.error {
-    animation: flashRed 0.5s infinite;
-    color: red;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* Loading Bar Animation */
-.loading-bar {
-    width: 0;
-    height: 5px;
-    background-color: lime;
-    margin-top: 10px;
-    border-radius: 2px;
-    animation: loadBar 3s ease-in-out infinite;
-}
-
-@keyframes loadBar {
-    0% { width: 0; }
-    50% { width: 50%; }
-    100% { width: 100%; }
-}
+    50% { background-color: rgba(255, 0, 0, 0.
