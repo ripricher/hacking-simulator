@@ -86,4 +86,28 @@ body {
 /* Flash Red for Ransomware Alert */
 @keyframes flashRed {
     0% { background-color: rgba(255, 0, 0, 0.7); }
-    50% { background-color: rgba(255, 0, 0, 0.
+    50% { background-color: rgba(255, 0, 0, 0.3); }
+    100% { background-color: rgba(255, 0, 0, 0.7); }
+}
+
+.error {
+    animation: flashRed 1s infinite;
+}
+
+.warning {
+    color: red;
+    font-weight: bold;
+}
+
+/* Loading Bar */
+.loading-bar {
+    width: 0%;
+    height: 20px;
+    background-color: red;
+    animation: loading 3s linear forwards;
+}
+
+@keyframes loading {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
